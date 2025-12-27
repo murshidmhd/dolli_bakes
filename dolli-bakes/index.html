@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Dolli Bakes - Custom made cakes for your occasions. Luxury minimalist baking in Malappuram.">
+    <title>Dolli Bakes | Luxury Custom Cakes</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">DOLLI BAKES</a>
+            <div class="nav-links">
+                <a href="#gallery">Gallery</a>
+                <a href="#process">The Process</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn-nav">Request Quote</a>
+            </div>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-bg-placeholder">
+            <!-- Ideally this would be an image tag with a real image -->
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                alt="Luxury Chocolate Cake" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content fade-in-up">
+            <h1>Custom Made For<br>Your Occasions</h1>
+            <p>Experience the art of luxury baking. Crafted with passion, designed for celebration. We deliver 11 am - 5
+                pm.</p>
+            <a href="#contact" class="btn-hero">Request a Quote</a>
+        </div>
+    </header>
+
+    <!-- Gallery Section (Bento Grid) -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Creations</h2>
+                <div class="divider"></div>
+                <p>A glimpse into our artistic journey</p>
+            </div>
+            <div class="bento-grid">
+                <!-- Bento Item 1 (Large - Wedding) -->
+                <div class="bento-item item-1 reveal">
+                    <img src="assets/img/gallery-1.jpg" alt="Custom Anniversary Cake" loading="lazy">
+                    <div class="bento-overlay">
+                        <h3>Celebration Cakes</h3>
+                    </div>
+                </div>
+                <!-- Bento Item 2 (Standard - Birthday) -->
+                <div class="bento-item item-2 reveal">
+                    <img src="assets/img/gallery-2.jpg" alt="Elegant Chocolate Cake" loading="lazy">
+                    <div class="bento-overlay">
+                        <h3>Elegant Designs</h3>
+                    </div>
+                </div>
+                <!-- Bento Item 3 (Standard - Custom) -->
+                <div class="bento-item item-3 reveal">
+                    <img src="assets/img/gallery-3.jpg" alt="Football Theme Cake" loading="lazy">
+                    <div class="bento-overlay">
+                        <h3>Themed Cakes</h3>
+                    </div>
+                </div>
+                <!-- Bento Item 4 (Tall - Special) -->
+                <div class="bento-item item-4 reveal">
+                    <img src="assets/img/gallery-4.jpg" alt="Kids Birthday Cake" loading="lazy">
+                    <div class="bento-overlay">
+                        <h3>Kids Birthdays</h3>
+                    </div>
+                </div>
+                <!-- Bento Item 5 (Wide - Desserts) -->
+                <div class="bento-item item-5 reveal">
+                    <img src="assets/img/gallery-5.jpg" alt="Safari Theme Cake" loading="lazy">
+                    <div class="bento-overlay">
+                        <h3>Special Occasions</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section-padding bg-charcoal text-gold" id="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Process</h2>
+                <div class="divider gold"></div>
+                <p>From concept to celebration</p>
+            </div>
+            <div class="process-steps">
+                <div class="step reveal delay-1">
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" class="icon-svg">
+                            <path
+                                d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>1. Consult</h3>
+                    <p>We discuss your vision, flavors, and design requirements to create something unique.</p>
+                </div>
+                <div class="step reveal delay-2">
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" class="icon-svg">
+                            <path d="M12 8.5C12 8.5 13.5 11 16 11C18.5 11 20 8.5 20 8.5" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" />
+                            <path d="M4 8.5C4 8.5 5.5 11 8 11C10.5 11 12 8.5 12 8.5" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" />
+                            <path d="M12 18V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>2. Create</h3>
+                    <p>We bake and craft your cake using the finest ingredients and meticulous attention to detail.</p>
+                </div>
+                <div class="step reveal delay-3">
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" class="icon-svg">
+                            <path d="M18 13V19C18 20.1 17.1 21 16 21H8C6.9 21 6 20.1 6 19V13" stroke="currentColor"
+                                stroke-width="2" />
+                            <path d="M12 3L15 8H9L12 3Z" fill="currentColor" />
+                            <path d="M12 8L12 21" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <h3>3. Celebrate</h3>
+                    <p>We deliver your masterpiece, ready for you and your guests to enjoy. Delivery 11am - 5pm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding" id="testimonials">
+        <div class="container">
+            <div class="testimonial-slider fade-in">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="quote">Absolutely stunning! Not only did it look incredible, but it tasted divine. Dolli
+                        Bakes made our day extra special.</p>
+                    <span class="author">— Sarah & James</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Form / Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info reveal">
+                    <h2>Get in Touch</h2>
+                    <div class="divider"></div>
+                    <p>Let's create something memorable together.</p>
+
+                    <div class="contact-details">
+                        <div class="info-item">
+                            <span class="label">Phone</span>
+                            <a href="tel:+919605888178">+91 9605888178</a>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="label">Location</span>
+                            <address>Parambil Peedika, Malappuram 673634</address>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="label">Hours</span>
+                            <p>Delivery: 11 am - 5 pm</p>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/dolli__bakes" target="_blank" rel="noopener"
+                                class="social-btn">
+                                Follow @dolli__bakes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container reveal delay-1">
+                    <form id="inquiryForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="type">Event Type</label>
+                                <select id="type" name="type">
+                                    <option value="wedding">Wedding</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="anniversary">Anniversary</option>
+                                    <option value="other">Other Occasion</option>
+                                </select>
+                            </div>
+                            <div class="form-group half">
+                                <label for="date">Event Date</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Vision / Details</label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Tell us about flavors, theme, or design ideas..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Inquiry on WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">DOLLI BAKES</a>
+            </div>
+            <p>&copy; 2024 Dolli Bakes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
