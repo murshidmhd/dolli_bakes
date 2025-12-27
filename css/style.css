@@ -852,20 +852,22 @@ footer {
     right: 30px;
     width: 60px;
     height: 60px;
-    background-color: #25D366;
+    background: var(--gradient-gold);
     color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
     z-index: 2000;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .floating-whatsapp:hover {
-    transform: translateY(-5px) scale(1.1);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
 }
 
 /* --- Preloader --- */
