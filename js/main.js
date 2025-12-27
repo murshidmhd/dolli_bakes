@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value;
             
             // Format WhatsApp Message
-            const ownerPhone = '917012046930'; 
+            const ownerPhone = '919605888178'; 
             
             const text = `*New Cake Architect Inquiry* 🏗️🎂%0A%0A` +
                          `*Client:* ${name}%0A` +
