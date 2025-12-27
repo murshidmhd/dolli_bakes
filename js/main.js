@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
                               `Preference: ${flavor} flavor%0D%0A` +
                               `Notes: ${message}`;
             
-            const ownerEmail = 'murshidmuhammad65@gmail.com'; 
+            const ownerEmail = 'dollybakes2017@gmail.com'; 
 
             // 2. Trigger Email (Small delay to ensure WhatsApp tab opens first)
             setTimeout(() => {
