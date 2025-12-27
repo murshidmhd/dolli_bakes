@@ -57,48 +57,152 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // --- Contact Form Handling (WhatsApp) ---
-    const contactForm = document.getElementById('inquiryForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+    // --- Flavor Boutique & Gallery Filter Logic ---
+
+    // Gallery Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.bento-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                    // Optional: Add animation class
+                    item.animate([
+                        { opacity: 0, transform: 'scale(0.9)' },
+                        { opacity: 1, transform: 'scale(1)' }
+                    ], {
+                        duration: 300,
+                        easing: 'ease-out'
+                    });
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // --- Wizard Form Logic ---
+    const wizardForm = document.getElementById('wizardForm');
+    const steps = document.querySelectorAll('.form-step');
+    const indicators = document.querySelectorAll('.step-indicator');
+    const nextBtns = document.querySelectorAll('.btn-next');
+    const prevBtns = document.querySelectorAll('.btn-prev');
+
+    function updateStep(stepIndex) {
+        // Hide all steps
+        steps.forEach(s => s.classList.remove('active'));
+        // Show current step
+        steps[stepIndex].classList.add('active');
+
+        // Update indicators
+        indicators.forEach((ind, idx) => {
+            if (idx <= stepIndex) {
+                ind.classList.add('active');
+            } else {
+                ind.classList.remove('active');
+            }
+        });
+    }
+
+    nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const nextStepId = btn.getAttribute('data-next'); // e.g., "step-2"
+            const stepNum = parseInt(nextStepId.split('-')[1]) - 1; // 0-based index
+            
+            // Simple validation (can be expanded)
+            updateStep(stepNum);
+        });
+    });
+
+    prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const prevStepId = btn.getAttribute('data-prev');
+            const stepNum = parseInt(prevStepId.split('-')[1]) - 1;
+            updateStep(stepNum);
+        });
+    });
+
+    // --- Final Submission (Wizard) ---
+    if (wizardForm) {
+        wizardForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            // Step 1 Data
             const type = document.getElementById('type').value;
             const date = document.getElementById('date').value;
+            const guests = document.getElementById('guests').value;
+            
+            // Step 2 Data
+            const flavor = document.getElementById('flavor').value;
             const message = document.getElementById('message').value;
+
+            // Step 3 Data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
             
             // Format WhatsApp Message
-            // Phone number from user request: 9605888178
             const ownerPhone = '917012046930'; 
             
-            const text = `*New Cake Inquiry* 🎂%0A%0A` +
-                         `*Name:* ${name}%0A` +
-                         `*Email:* ${email}%0A` +
+            const text = `*New Cake Architect Inquiry* 🏗️🎂%0A%0A` +
+                         `*Client:* ${name}%0A` +
+                         `*Email:* ${email}%0A%0A` +
+                         `*--- Event Details ---*%0A` +
                          `*Type:* ${type}%0A` +
-                         `*Event Date:* ${date}%0A` +
+                         `*Date:* ${date}%0A` +
+                         `*Guests:* ${guests}%0A%0A` +
+                         `*--- Cake Design ---*%0A` +
+                         `*Flavor:* ${flavor}%0A` +
                          `*Vision:* ${message}`;
             
             // Format Email Body
-            const emailSubject = `New Inquiry from ${name} - Dolli Bakes`;
-            const emailBody = `Name: ${name}%0D%0A` +
-                              `Email: ${email}%0D%0A` +
-                              `Event Type: ${type}%0D%0A` +
-                              `Event Date: ${date}%0D%0A` +
-                              `Details: ${message}`;
+            const emailSubject = `Cake Architect Inquiry - ${name}`;
+            const emailBody = `New Inquiry from Wizard Form%0D%0A%0D%0A` +
+                              `Client: ${name} (${email})%0D%0A` +
+                              `Event: ${type} on ${date} (Approx ${guests} guests)%0D%0A` +
+                              `Preference: ${flavor} flavor%0D%0A` +
+                              `Notes: ${message}`;
             
-            // Placeholder Email - Client to replace
             const ownerEmail = 'murshidmuhammad65@gmail.com'; 
 
-            // Redirect to WhatsApp
-            const whatsappUrl = `https://wa.me/${ownerPhone}?text=${text}`;
-            window.open(whatsappUrl, '_blank');
+            // 2. Trigger Email (Small delay to ensure WhatsApp tab opens first)
+            setTimeout(() => {
+                window.location.href = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
+            }, 1000);
+        });
+    }
 
-            // Trigger Email (Mailto)
-            window.location.href = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
+    // --- Preloader ---
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 800); // Minimum view time
         });
     }
 });
+
+// --- Helper for Hero Quick Links ---
+function quickFilter(category) {
+    // Scroll to gallery
+    const gallerySection = document.getElementById('gallery');
+    gallerySection.scrollIntoView({ behavior: 'smooth' });
+
+    // Trigger filter click
+    // We need to wait for scroll or just trigger it immediately
+    setTimeout(() => {
+        const btn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+        if (btn) {
+            btn.click();
+        }
+    }, 500); // Wait for scroll to start/finish roughly
+}

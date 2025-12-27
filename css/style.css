@@ -4,24 +4,28 @@
 */
 
 :root {
-    /* Colors - Deep Charcoal & Champagne Gold Palette */
-    --color-bg: #FCFCFA; /* Very light cream/off-white */
-    --color-text: #333333;
-    --color-charcoal: #1A1A1A; /* Deep Charcoal */
-    --color-charcoal-light: #2C2C2C;
-    --color-gold: #D4AF37; /* Classic Champagne Gold */
-    --color-gold-light: #F3E5AB;
-    --color-gold-hover: #C59F2B;
-    --color-grey-light: #F5F5F5;
+    /* --- Colors --- */
+    --color-charcoal: #1A1A1A;
+    --color-charcoal-light: #333333;
+    --color-gold: #D4AF37;
     
-    /* Typography */
+    /* Liquid Gold Gradients */
+    --gradient-gold: linear-gradient(135deg, #DFBD69 0%, #9E7F2D 100%);
+    --gradient-text: linear-gradient(to right, #DFBD69, #FCEE21, #DFBD69, #9E7F2D); /* simulated metallic */
+    --gradient-gold-hover: linear-gradient(135deg, #ebd182 0%, #d4af37 100%);
+    --gradient-dark: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    
+    --color-background: #FCFCFA;
+    --color-background-alt: #F8F8F6;
+    
+    /* --- Typography --- */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
     
-    /* Spacing */
+    /* --- Spacing --- */
     --container-width: 1200px;
-    --section-padding: 100px;
-    --border-radius: 4px; /* Minimal radius, not too rounded */
+    --section-padding: 100px 0;
+    --border-radius: 4px;
 }
 
 /* --- Reset & Base --- */
@@ -37,13 +41,32 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    color: var(--color-charcoal-light);
+    background-color: var(--color-background);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .logo, .footer-logo {
+/* Gradient Text Utility */
+.text-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block; /* Required for chrome sometimes */
+}
+
+h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    background-clip: text;
+    color: transparent;
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3, h4, .logo, .footer-logo {
     font-family: var(--font-heading);
     font-weight: 600;
 }
@@ -222,6 +245,22 @@ img {
     line-height: 1.2;
     margin-bottom: 20px;
     letter-spacing: 1px;
+    color: #fff; /* Keep white on hero for contrast, or use gradient logic below if overlay is dark enough */
+    /* Optional: If you want gradient text on hero, uncomment:
+    background: linear-gradient(to right, #fff 20%, #e3c46b 50%, #fff 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    */
+}
+
+.hero-content h1 em {
+    color: var(--color-gold); /* Fallback */
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
 }
 
 .hero-content p {
@@ -234,9 +273,8 @@ img {
 }
 
 .btn-hero {
-    display: inline-block;
     padding: 15px 40px;
-    background-color: var(--color-gold);
+    background: var(--gradient-gold); /* Gradient Button */
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -245,22 +283,54 @@ img {
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); /* Gold Glow */
 }
 
 .btn-hero:hover {
-    background-color: var(--color-gold-hover);
+    background: var(--gradient-gold-hover);
     transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
-/* --- Gallery (Bento Grid) --- */
+/* --- Gallery (Standard Grid) --- */
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .section-header h2 {
     font-size: 2.5rem;
     color: var(--color-charcoal);
+}
+
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 25px;
+    background: transparent;
+    border: 1px solid var(--color-charcoal);
+    color: var(--color-charcoal);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--color-charcoal);
+    color: #fff;
+}
+
+.filter-btn.active {
+    background-color: var(--color-gold);
+    color: #fff;
 }
 
 .bento-grid {
@@ -619,6 +689,123 @@ footer {
         display: flex;
     }
 
+/* --- Calendar Preview --- */
+.calendar-preview {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.calendar-grid {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.cal-header {
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.cal-days {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.cal-days span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: #f9f9f9;
+    font-size: 0.8rem;
+    border-radius: 50%;
+}
+
+.cal-days span.booked {
+    text-decoration: line-through;
+    color: #ccc;
+    background: transparent;
+}
+
+.booked-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+/* --- Wizard Form --- */
+.wizard-form {
+    position: relative;
+    min-height: 450px;
+}
+
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.step-indicator {
+    width: 30px;
+    height: 30px;
+    background: #eee;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.step-indicator.active {
+    background: var(--color-gold);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+.progress-line {
+    flex: 1;
+    height: 2px;
+    background: #eee;
+    margin: 0 10px;
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-step h3 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: var(--color-gold);
+}
+
+/* Button Group */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-submit.outline {
+    background: transparent;
+    border: 1px solid var(--color-charcoal);
+    color: var(--color-charcoal);
+}
+
     /* Mobile Toggle Animation */
     .mobile-menu-toggle.open span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 6px);
@@ -641,4 +828,133 @@ footer {
     .hero-content h1 {
         font-size: 2.2rem;
     }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-group .btn-submit {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* --- Floating WhatsApp --- */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 2000;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-whatsapp:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* --- Preloader --- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    display: block;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    color: var(--color-charcoal);
+    margin-bottom: 15px;
+    font-weight: 700;
+    animation: pulse 2s infinite;
+}
+
+.loader-line {
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    margin: 0 auto;
+    animation: loaderLine 1.5s ease-in-out forwards;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+@keyframes loaderLine {
+    to { width: 100px; }
+}
+
+/* --- Quick Links (Hero) --- */
+.quick-links {
+    margin-top: 40px;
+    opacity: 0.9;
+}
+
+.quick-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.7);
+}
+
+.quick-tags {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.quick-tag {
+    padding: 8px 20px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.quick-tag:hover {
+    background: #fff;
+    color: #000;
 }

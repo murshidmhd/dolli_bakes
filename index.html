@@ -21,6 +21,25 @@
 
 <body>
 
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <span class="loader-logo">DOLLI BAKES</span>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917012046930" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+            <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.698c1.005.572 1.903.87 3.05.87 3.181 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.766-5.766-5.766zm9.928 14.828l-2.029.077c-2.316-.279-4.275-1.464-6.417-3.197-.584-.509-1.229-1.079-1.782-1.636-.264-.265-.456-.535-.742-.777-2.126-1.802-3.414-3.565-3.868-5.328-.707-2.735.203-5.397 2.261-7.224 2.148-1.906 5.143-2.613 8.017-1.788 2.76.793 4.965 2.87 6.104 5.592 1.077 2.576.764 5.485-.808 7.829-.981 1.464-2.565 2.529-4.14 3.097-1.428.514-2.91.737-4.407.74l2.811 2.614z" />
+            <path
+                d="M12.064 0C5.393 0 .011 5.419.011 12.072c0 2.13.555 4.12 1.53 5.867l-1.541 5.627 5.772-1.512c1.7.9 3.655 1.416 5.727 1.416 6.671 0 12.053-5.419 12.053-12.072C23.552 5.42 18.17 0 12.064 0zm6.809 17.56c-.321 0-.749.123-1.049.321-.299.198-1.733.864-2.003.963-.27.098-.466.148-.661.148-.196 0-.391-.05-.536-.148-1.921-.741-3.488-2.193-4.57-4.113-.377-.671-.061-1.006.321-1.463l.365-.443c.12-.148.24-.296.331-.48.09-.184.06-.356.03-.493-.03-.137-1.249-3.045-1.564-3.619-.395-.719-.716-.543-.972-.543-.235 0-.505.025-.775.025-.851 0-1.78.361-2.28 1.417-.992 2.155-.093 5.176 1.956 7.91 2.657 3.545 6.452 4.943 8.875 5.253 2.423.31 2.949-.494 3.39-1.089.65-1.046.22-2.151.109-2.327-.11-.176-.419-.324-.739-.324z"
+                fill="#fff" />
+        </svg>
+    </a>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
@@ -54,7 +73,19 @@
             <h1>Custom Made For<br>Your Occasions</h1>
             <p>Experience the art of luxury baking. Crafted with passion, designed for celebration. We deliver 11 am - 5
                 pm.</p>
+
             <a href="#contact" class="btn-hero">Request a Quote</a>
+
+            <!-- Quick Category Links (Mobile Scroll) -->
+            <div class="quick-links">
+                <span class="quick-label">Or explore:</span>
+                <div class="quick-tags">
+                    <button class="quick-tag" onclick="quickFilter('wedding')">Weddings</button>
+                    <button class="quick-tag" onclick="quickFilter('celebration')">Birthdays</button>
+                    <button class="quick-tag" onclick="quickFilter('kids')">Kids</button>
+                    <button class="quick-tag" onclick="quickFilter('all')">All Cakes</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -66,37 +97,46 @@
                 <div class="divider"></div>
                 <p>A glimpse into our artistic journey</p>
             </div>
+
+            <!-- Gallery Filters -->
+            <div class="gallery-filters fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="celebration">Celebration</button>
+                <button class="filter-btn" data-filter="kids">Kids</button>
+            </div>
+
             <div class="bento-grid">
                 <!-- Bento Item 1 (Large - Wedding) -->
-                <div class="bento-item item-1 reveal">
+                <div class="bento-item item-1 reveal" data-category="wedding">
                     <img src="assets/img/gallery-1.jpg" alt="Custom Anniversary Cake" loading="lazy">
                     <div class="bento-overlay">
                         <h3>Celebration Cakes</h3>
                     </div>
                 </div>
                 <!-- Bento Item 2 (Standard - Birthday) -->
-                <div class="bento-item item-2 reveal">
+                <div class="bento-item item-2 reveal" data-category="celebration">
                     <img src="assets/img/gallery-2.jpg" alt="Elegant Chocolate Cake" loading="lazy">
                     <div class="bento-overlay">
                         <h3>Elegant Designs</h3>
                     </div>
                 </div>
                 <!-- Bento Item 3 (Standard - Custom) -->
-                <div class="bento-item item-3 reveal">
+                <div class="bento-item item-3 reveal" data-category="kids">
                     <img src="assets/img/gallery-3.jpg" alt="Football Theme Cake" loading="lazy">
                     <div class="bento-overlay">
                         <h3>Themed Cakes</h3>
                     </div>
                 </div>
                 <!-- Bento Item 4 (Tall - Special) -->
-                <div class="bento-item item-4 reveal">
+                <div class="bento-item item-4 reveal" data-category="kids">
                     <img src="assets/img/gallery-4.jpg" alt="Kids Birthday Cake" loading="lazy">
                     <div class="bento-overlay">
                         <h3>Kids Birthdays</h3>
                     </div>
                 </div>
                 <!-- Bento Item 5 (Wide - Desserts) -->
-                <div class="bento-item item-5 reveal">
+                <div class="bento-item item-5 reveal" data-category="celebration">
                     <img src="assets/img/gallery-5.jpg" alt="Safari Theme Cake" loading="lazy">
                     <div class="bento-overlay">
                         <h3>Special Occasions</h3>
@@ -181,7 +221,7 @@
                     <div class="contact-details">
                         <div class="info-item">
                             <span class="label">Phone</span>
-                            <a href="tel:+919605888178">+91 9605888178</a>
+                            <a href="tel:+917012046930">+91 7012046930</a>
                         </div>
 
                         <div class="info-item">
@@ -194,6 +234,19 @@
                             <p>Delivery: 11 am - 5 pm</p>
                         </div>
 
+                        <!-- Visual Calendar (New Feature) -->
+                        <div class="calendar-preview mt-4">
+                            <span class="label">Availability Status</span>
+                            <div class="calendar-grid">
+                                <div class="cal-header">DEC 2024</div>
+                                <div class="cal-days">
+                                    <span>24</span><span class="booked">25</span><span>26</span>
+                                    <span>27</span><span>28</span><span class="booked">29</span>
+                                </div>
+                                <p class="cal-note text-sm">* <span class="booked-dot"></span> Fully Booked</p>
+                            </div>
+                        </div>
+
                         <div class="social-links">
                             <a href="https://www.instagram.com/dolli__bakes" target="_blank" rel="noopener"
                                 class="social-btn">
@@ -204,36 +257,86 @@
                 </div>
 
                 <div class="contact-form-container reveal delay-1">
-                    <form id="inquiryForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <!-- Multi-Step Wizard Form -->
+                    <form id="wizardForm" class="contact-form wizard-form">
+                        <!-- Progress Bar -->
+                        <div class="wizard-progress">
+                            <div class="step-indicator active" data-step="1">1</div>
+                            <div class="progress-line"></div>
+                            <div class="step-indicator" data-step="2">2</div>
+                            <div class="progress-line"></div>
+                            <div class="step-indicator" data-step="3">3</div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                        <!-- Step 1: Event Details -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Event Details</h3>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="type">Occasion</label>
+                                    <select id="type" name="type">
+                                        <option value="wedding">Wedding</option>
+                                        <option value="birthday">Birthday</option>
+                                        <option value="anniversary">Anniversary</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="date">Date</label>
+                                    <input type="date" id="date" name="date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Approx. Guests</label>
+                                <input type="number" id="guests" placeholder="e.g. 50" min="1">
+                            </div>
+                            <button type="button" class="btn-submit btn-next" data-next="step-2">Next: Flavors
+                                →</button>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label for="type">Event Type</label>
-                                <select id="type" name="type">
-                                    <option value="wedding">Wedding</option>
-                                    <option value="birthday">Birthday</option>
-                                    <option value="anniversary">Anniversary</option>
-                                    <option value="other">Other Occasion</option>
+
+                        <!-- Step 2: Design & Flavor -->
+                        <div class="form-step" id="step-2">
+                            <h3>Design Your Cake</h3>
+                            <div class="form-group">
+                                <label for="flavor">Preferred Flavor</label>
+                                <select id="flavor" name="flavor">
+                                    <option value="Vanilla">Velvet Vanilla</option>
+                                    <option value="Chocolate">Midnight Cocoa</option>
+                                    <option value="Caramel">Salted Caramel</option>
+                                    <option value="Lemon">Zesty Lemon</option>
+                                    <option value="Other">Other / Not Sure</option>
                                 </select>
                             </div>
-                            <div class="form-group half">
-                                <label for="date">Event Date</label>
-                                <input type="date" id="date" name="date">
+                            <div class="form-group">
+                                <label for="message">Vision & Theme Details</label>
+                                <textarea id="message" name="message" rows="3"
+                                    placeholder="Describe your theme, colors, or design ideas..."></textarea>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn-submit outline btn-prev" data-prev="step-1">←
+                                    Back</button>
+                                <button type="button" class="btn-submit btn-next" data-next="step-3">Next: Contact
+                                    →</button>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Your Vision / Details</label>
-                            <textarea id="message" name="message" rows="4"
-                                placeholder="Tell us about flavors, theme, or design ideas..."></textarea>
+
+                        <!-- Step 3: Contact Info -->
+                        <div class="form-step" id="step-3">
+                            <h3>Finalize Inquiry</h3>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn-submit outline btn-prev" data-prev="step-2">←
+                                    Back</button>
+                                <button type="submit" class="btn-submit">All Done! Send Inquiry ✨</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn-submit">Send Inquiry on WhatsApp</button>
                     </form>
                 </div>
             </div>
